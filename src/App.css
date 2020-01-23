@@ -1,38 +1,175 @@
-.App {
-  text-align: center;
-}
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.bg-main {
+  /* background-image: url("./cinema-img.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; */
+  background-color: black;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.main {
+  /* background-image: url("./cinema-img.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; */
+  background-color: black;
+  height: 100vh;
 }
 
-@keyframes App-logo-spin {
+.navbar {
+  display: flex;
+  justify-content: flex-start;
+  height: 12vh;
+  color: white;
+  margin-bottom: 10px; 
+}
+
+.nav-links {
+  display: flex;
+  width: 55vw;
+  flex-flow: column;
+  margin: 25px;
+}
+
+.table {
+  margin: auto;
+  font-family: 'Montserrat', sans-serif;
+  
+  border-collapse: collapse;
+  
+}
+
+th, td {
+  padding: 0.25rem;
+  text-align: left;
+  color: #F0F0F0;
+  
+}
+
+th {
+  border-bottom: 1px solid #969696;
+}
+
+td:hover {
+  padding: 3px;
+  
+  color: #969696;
+}
+
+tr:hover {
+  color: #F0F0F0;
+}
+
+.delete {
+  border: none;
+  color: #CC3333;
+}
+
+.delete:hover {
+  color: #F0F0F0;
+  cursor: pointer;
+}
+
+.form-cont {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  margin-top: 35px;
+  flex-flow: column;
+}
+
+
+.filter {
+  display: flex;
+  margin: auto;
+  position: absolute;
+  top: 8px;
+  left: 38px;
+}
+
+.search-input {
+  margin: auto;
+  border: 2px solid #969696;
+  border-radius: 4px;
+  animation-name: search;
+  animation-duration: 0.2s;
+}
+
+@keyframes search {
   from {
-    transform: rotate(0deg);
+    width: 25%;
   }
   to {
-    transform: rotate(360deg);
+    width: 100%;
   }
+}
+
+
+
+.link {
+  margin: 8px;
+  padding: 6px;
+  color: #969696;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 32px;
+  
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.link:hover {
+
+  color: #F0F0F0;
+  
+}
+
+.btn-link {
+  color: #087099;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: lighter;
+  font-style: italic;
+  background-color: transparent;
+  width: 25px;
+  margin: 3px;
+}
+
+.btn-search:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.btn-search:active {
+  opacity: 0.5;
+}
+
+.invalinfo-cont>h1 {
+  text-decoration-line: underline;
+}
+
+.font {
+  font-family: 'Montserrat', sans-serif;
+
+}
+
+.quote {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: lighter;
+  font-style: italic;
+  position: absolute;
+  top: 10px;
+  right: 60px;
+  color: #969696; 
+}
+
+.btn-standard {
+  color: #DCD427;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: lighter;
+  font-size: 20px;
+  background-color: transparent;
+  height: 32px;
+  
 }
