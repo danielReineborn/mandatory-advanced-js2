@@ -62,14 +62,14 @@ class Main extends React.Component {
 
     showQuote = () => {
         let quotes = ["E.T. phone home. - E.T the Extra-Terrestrial",
-            "You had me at hello. - Jerry Maguire",
-            "To infinity and beyond! - Toy Story",
-            "Houston, we have a problem - Apollo 13",
-            "Shaken, not stirred - Goldfinger",
-            "I'm the king of the World. - Titanic",
-            "Mama says, stupid is as stupid does. - Forrest Gump",
-            "Just keep swimming. - Finding Nemo",
-            "I'm having an old friend for dinner. - The Silence of the Lambs"];
+            `"You had me at hello. - Jerry Maguire"`,
+            `"To infinity and beyond! - Toy Story"`,
+            `"Houston, we have a problem - Apollo 13"`,
+            `"Shaken, not stirred - Goldfinger"`,
+            `"I'm the king of the World. - Titanic"`,
+            `"Mama says, stupid is as stupid does. - Forrest Gump"`,
+            `"Just keep swimming. - Finding Nemo"`,
+            `"I'm having an old friend for dinner. - The Silence of the Lambs"`];
 
         let random = Math.floor(Math.random() * quotes.length);
         let quote = quotes[random];
@@ -91,21 +91,24 @@ class Main extends React.Component {
                     <table className="table">
                         <thead>
                             <tr>
-                                <th></th>
                                 <th>Title:</th>
                                 <th>Director:</th>
                                 <th>Rating:</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+
                             </tr>
                         </thead>
                         <tbody>
                             {this.filteredMovies().map((x) => {
                                 return <tr key={x.id}>
-                                    <td>{<DeleteMovie deleteDone={this.deleteDone} id={x.id}></DeleteMovie>}</td>
                                     <td>{x.title}</td>
                                     <td>{x.director}</td>
                                     <td>{x.rating}</td>
                                     <td>{<Link className="btn-link" to={`/movies/editmovie/${x.id}`}>[EDIT]</Link>}</td>
                                     <td>{<Link className="btn-link" to={`/movies/moviedetail/${x.id}`}>[DETAIL]</Link>}</td>
+                                    <td>{<DeleteMovie deleteDone={this.deleteDone} id={x.id}></DeleteMovie>}</td>
                                 </tr>
                             })}
                         </tbody>

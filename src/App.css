@@ -150,6 +150,7 @@ tr:hover {
 
 .font {
   font-family: 'Montserrat', sans-serif;
+  color: #F0F0F0;
 
 }
 
@@ -165,11 +166,16 @@ tr:hover {
 }
 
 .btn-standard {
-  color: #DCD427;
+  color: #087099;
   font-family: 'Montserrat', sans-serif;
   font-weight: lighter;
   font-size: 20px;
   background-color: transparent;
   height: 32px;
-  
+  border: none;
+}
+.btn-standard:hover {
+  cursor: pointer;
+  font-size: 24px;
+
 }
