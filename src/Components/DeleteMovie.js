@@ -16,6 +16,15 @@ class DeleteMovie extends React.Component {
     deleteMovie() {
         axios.delete(`http://3.120.96.16:3001/movies/${this.props.id}`)
             .then(this.props.deleteDone)
+            .catch((err) => {
+                if (err.response.status === 404) {
+                    this.props.deleteDone();
+
+                } else {
+                    console.error(err);
+                    //Ev kan man lägga till ett meddelande här för berätta för användaren att något oförutsett har skett. 
+                }
+            })
 
     }
 

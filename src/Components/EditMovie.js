@@ -33,13 +33,12 @@ class EditMovie extends React.Component {
             .catch((err) => { //Testa dessa!
                 if (err.response.status === 404) {
                     alert("Error 404, movie does not exist.");
+                    this.setState({
+                        redirect: true,
+                    })
                 }
             })
-            .catch(() => {
-                this.setState({
-                    redirect: true,
-                })
-            })
+
 
     }
 
@@ -65,7 +64,7 @@ class EditMovie extends React.Component {
                     })
 
                 } else if (err.response.status === 404) {
-                    alert("Error 404, movie does not exist.");
+                    alert("Error 404: Movie does not exist.");
                     this.setState({
                         redirect: true,
                     })
@@ -81,6 +80,7 @@ class EditMovie extends React.Component {
 
 
 
+    //Kolla upp lite om validering! Frontend vali.
     render() {
         if (this.state.redirect) {
             return <Redirect to="/movies" />
@@ -109,13 +109,13 @@ class EditMovie extends React.Component {
                     <h3 className="font">Edit movie:</h3>
                     <form className="form font" onSubmit={this.onSubmit}>
                         <label htmlFor="title" >Insert title:</label><br />
-                        <input value={this.state.title} onChange={this.onChange} type="text" name="title" id="title" /><br />
+                        <input required maxLength="40" value={this.state.title} onChange={this.onChange} type="text" name="title" id="title" /><br />
                         <label htmlFor="director">Name of director:</label><br />
-                        <input value={this.state.director} onChange={this.onChange} type="text" name="director" id="director" /><br />
+                        <input required maxLength="40" value={this.state.director} onChange={this.onChange} type="text" name="director" id="director" /><br />
                         <label htmlFor="rating" step="any">Rate the movie:</label><br />
-                        <input value={this.state.rating} onChange={this.onChange} name="rating" type="number" /><br />
+                        <input required min="1" max="5" value={this.state.rating} onChange={this.onChange} name="rating" type="number" /><br />
                         <label htmlFor="description">Short description of the movie:</label><br />
-                        <textarea value={this.state.description} onChange={this.onChange} type="text" name="description" id="description" rows="5" cols="30"></textarea><br />
+                        <textarea required maxLength="300" value={this.state.description} onChange={this.onChange} type="text" name="description" id="description" rows="5" cols="30"></textarea><br />
                         <input className="btn-standard" onSubmit={this.onSubmit} type="submit" value="Update details" />
                     </form>
 

@@ -17,10 +17,13 @@ class Main extends React.Component {
         this.getMovies = this.getMovies.bind(this);
     }
 
+    componentDidMount() {
+        this.getMovies();
+    }
 
     filterVal = (value) => {
         this.setState({
-            value: value,
+            value,
         })
 
     }
@@ -44,9 +47,7 @@ class Main extends React.Component {
             });
     }
 
-    componentDidMount() {
-        this.getMovies();
-    }
+
     deleteDone = () => {
         this.getMovies();
     }

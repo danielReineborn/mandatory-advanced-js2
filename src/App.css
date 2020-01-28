@@ -3,17 +3,11 @@
 
 
 .bg-main {
-  /* background-image: url("./cinema-img.jpg");
-  background-repeat: no-repeat;
-  background-size: cover; */
   background-color: black;
   color: white;
 }
 
 .main {
-  /* background-image: url("./cinema-img.jpg");
-  background-repeat: no-repeat;
-  background-size: cover; */
   background-color: black;
   height: 100vh;
 }
@@ -45,7 +39,8 @@ th, td {
   padding: 0.25rem;
   text-align: left;
   color: #F0F0F0;
-  
+  border-bottom: 1px solid #969696;
+
 }
 
 th {
@@ -80,7 +75,6 @@ tr:hover {
   flex-flow: column;
 }
 
-
 .filter {
   display: flex;
   margin: auto;
@@ -105,8 +99,6 @@ tr:hover {
     width: 100%;
   }
 }
-
-
 
 .link {
   margin: 8px;
@@ -142,6 +134,12 @@ tr:hover {
 
 .btn-search:active {
   opacity: 0.5;
+}
+
+.invalinfo-cont {
+  position: absolute;
+  top: 175px;
+  right: 150px;
 }
 
 .invalinfo-cont>h1 {
