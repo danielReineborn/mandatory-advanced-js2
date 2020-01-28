@@ -113,7 +113,7 @@ class EditMovie extends React.Component {
                         <label htmlFor="director">Name of director:</label><br />
                         <input required maxLength="40" value={this.state.director} onChange={this.onChange} type="text" name="director" id="director" /><br />
                         <label htmlFor="rating" step="any">Rate the movie:</label><br />
-                        <input required min="1" max="5" value={this.state.rating} onChange={this.onChange} name="rating" type="number" /><br />
+                        <input required min="0.0" max="5.0" step="0.1" value={this.state.rating} onChange={this.onChange} name="rating" type="number" /><br />
                         <label htmlFor="description">Short description of the movie:</label><br />
                         <textarea required maxLength="300" value={this.state.description} onChange={this.onChange} type="text" name="description" id="description" rows="5" cols="30"></textarea><br />
                         <input className="btn-standard" onSubmit={this.onSubmit} type="submit" value="Update details" />

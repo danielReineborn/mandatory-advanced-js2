@@ -90,7 +90,7 @@ class AddMovie extends React.Component {
                         <label htmlFor="director">Name of director:</label><br />
                         <input required maxLength="40" value={this.state.director} onChange={this.onChange} type="text" name="director" id="director" /><br />
                         <label htmlFor="rating">Rate the movie:</label><br />
-                        <input required minLength="0" maxLength="5" value={this.state.rating} onChange={this.onChange} name="rating" type="number" step="0.1" /><br />
+                        <input required min="0.0" max="5.0" value={this.state.rating} onChange={this.onChange} name="rating" type="number" step="0.1" /><br />
                         <label htmlFor="description">Short description of the movie:</label><br />
                         <textarea required maxLength="300" value={this.state.description} onChange={this.onChange} type="text" name="description" id="description" rows="5" cols="30"></textarea><br />
                         <input className="btn-standard" onSubmit={this.onSubmit} type="submit" value="Add movie" />
