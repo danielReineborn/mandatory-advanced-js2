@@ -18,10 +18,8 @@ class EditMovie extends React.Component {
     }
 
     componentDidMount() {
-        console.log("this happens")
         axios.get(`http://3.120.96.16:3001/movies/${this.props.match.params.id}`)
             .then((response) => {
-                console.log(response.data);
                 response = response.data;
                 this.setState({
                     title: response.title,
@@ -30,16 +28,14 @@ class EditMovie extends React.Component {
                     rating: response.rating,
                 })
             })
-            .catch((err) => { //Testa dessa!
-                if (err.response.status === 404) {
+            .catch((err) => {
+                if (err.response.status === 404) { //Probably not the best design choice, but works well with automated redirect after alert.
                     alert("Error 404, movie does not exist.");
                     this.setState({
                         redirect: true,
                     })
                 }
             })
-
-
     }
 
     onSubmit = (e) => {
@@ -57,13 +53,12 @@ class EditMovie extends React.Component {
                 })
             })
             .catch((err) => {
-                console.log(err.response);
-                if (err.response.status === 400) {
+                if (err.response.status === 400) { // Will most likely not happen. But just in case.
                     this.setState({
                         invalidFormat: true,
                     })
 
-                } else if (err.response.status === 404) {
+                } else if (err.response.status === 404) { //Probably not the best design choice, but works well with automated redirect after alert.
                     alert("Error 404: Movie does not exist.");
                     this.setState({
                         redirect: true,
@@ -78,9 +73,6 @@ class EditMovie extends React.Component {
         })
     }
 
-
-
-    //Kolla upp lite om validering! Frontend vali.
     render() {
         if (this.state.redirect) {
             return <Redirect to="/movies" />

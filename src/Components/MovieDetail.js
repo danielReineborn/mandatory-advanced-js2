@@ -16,7 +16,6 @@ class MovieDetail extends React.Component {
     componentDidMount() {
         axios.get(`http://3.120.96.16:3001/movies/${this.props.match.params.id}`)
             .then((response) => {
-                console.log(response);
                 response = response.data;
                 return response;
             })

@@ -1,6 +1,5 @@
 import React from "react";
 import axios from "axios";
-import { Link, Redirect } from "react-router-dom";
 import { Close } from "@material-ui/icons";
 
 
@@ -22,7 +21,7 @@ class DeleteMovie extends React.Component {
 
                 } else {
                     console.error(err);
-                    //Ev kan man lägga till ett meddelande här för berätta för användaren att något oförutsett har skett. 
+
                 }
             })
 

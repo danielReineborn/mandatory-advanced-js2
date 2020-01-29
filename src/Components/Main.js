@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import DeleteMovie from "./DeleteMovie";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Navigation from "./Navigation";
 import Filter from "./Filter";
@@ -31,7 +31,6 @@ class Main extends React.Component {
     getMovies() {
         axios.get("http://3.120.96.16:3001/movies")
             .then((response) => {
-                console.log(response);
                 response = response.data;
                 return response;
             })
@@ -39,7 +38,6 @@ class Main extends React.Component {
                 this.setState({
                     movies: response,
                 })
-                console.log(this.state.movies)
 
             })
             .catch((err) => {
@@ -74,7 +72,6 @@ class Main extends React.Component {
 
         let random = Math.floor(Math.random() * quotes.length);
         let quote = quotes[random];
-        console.log(quote);
         return quote;
 
     }

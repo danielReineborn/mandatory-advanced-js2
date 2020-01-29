@@ -42,8 +42,8 @@ class AddMovie extends React.Component {
 
             })
             .catch((err) => {
-                console.error(err)
-                this.setState({
+                console.error(err) // Not likely to happen, due to validation on inputs.
+                this.setState({ // In case the server does give 400, this is what happens. 
                     invalidFormat: true,
                 })
             })
