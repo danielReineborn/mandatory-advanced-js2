@@ -10,7 +10,10 @@ class MovieDetail extends React.Component {
         this.state = {
             movie: {},
             redirect: false,
+            error: false,
         }
+
+        this.goBack = this.goBack.bind(this);
     }
 
     componentDidMount() {
@@ -27,18 +30,32 @@ class MovieDetail extends React.Component {
             .catch((err) => {
                 console.error(err);
                 if (err.response.status === 404) {
-                    alert("Error 404, movie does not exist.");
+
                     this.setState({
-                        redirect: true,
+                        error: true,
                     })
+                    /* alert("Error 404, movie does not exist."); */
+                    /* this.setState({
+                        redirect: true,
+                    }) */
                 }
             })
     }
 
-
+    goBack() {
+        this.setState({
+            redirect: true,
+        })
+    }
 
     render() {
-
+        let errorMsg = null;
+        if (this.state.error) {
+            errorMsg = <div className="invalinfo-cont">
+                <h2 className="font">Error 404: Movie does not exist.</h2>
+                <button onClick={this.goBack} className="btn-standard">Go back</button>
+            </div>
+        }
         if (this.state.redirect) {
             return <Redirect to="/movies" />
         }
@@ -57,7 +74,7 @@ class MovieDetail extends React.Component {
                     <Link to={`/movies/editmovie/${this.props.match.params.id}`}><button className="btn-standard" >Edit details</button></Link>
 
                 </div>
-
+                {errorMsg}
 
             </div>
         )

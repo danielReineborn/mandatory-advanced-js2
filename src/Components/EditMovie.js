@@ -14,7 +14,10 @@ class EditMovie extends React.Component {
             rating: "",
             redirect: false,
             invalidFormat: false,
+            error: false,
         }
+        this.goBack = this.goBack.bind(this);
+
     }
 
     componentDidMount() {
@@ -29,10 +32,10 @@ class EditMovie extends React.Component {
                 })
             })
             .catch((err) => {
-                if (err.response.status === 404) { //Probably not the best design choice, but works well with automated redirect after alert.
-                    alert("Error 404, movie does not exist.");
+                if (err.response.status === 404) {
+                    /* alert("Error 404, movie does not exist."); */
                     this.setState({
-                        redirect: true,
+                        error: true,
                     })
                 }
             })
@@ -58,10 +61,10 @@ class EditMovie extends React.Component {
                         invalidFormat: true,
                     })
 
-                } else if (err.response.status === 404) { //Probably not the best design choice, but works well with automated redirect after alert.
-                    alert("Error 404: Movie does not exist.");
+                } else if (err.response.status === 404) {
+                    /* alert("Error 404: Movie does not exist."); */
                     this.setState({
-                        redirect: true,
+                        error: true,
                     })
                 }
             })
@@ -73,7 +76,20 @@ class EditMovie extends React.Component {
         })
     }
 
+    goBack() {
+        this.setState({
+            redirect: true,
+        })
+    }
+
     render() {
+        let errorMsg = null;
+        if (this.state.error) {
+            errorMsg = <div className="invalinfo-cont">
+                <h2 className="font">Error 404: Movie does not exist.</h2>
+                <button onClick={this.goBack} className="btn-standard">Go back</button>
+            </div>
+        }
         if (this.state.redirect) {
             return <Redirect to="/movies" />
         }
@@ -112,6 +128,7 @@ class EditMovie extends React.Component {
                     </form>
 
                     {invalidForm}
+                    {errorMsg}
                 </div>
 
 
